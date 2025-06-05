@@ -1,0 +1,19 @@
+name: WildernessTP
+version: '${project.version}'
+main: bwillows.wildernesstp.WildernessTP
+permissions:
+  wildernesstp.use:
+    description: Allows players to use the /wild command
+    default: true
+  wildernesstp.bypass-cooldown:
+    description: Allows bypassing the /wild teleport cooldown
+    default: op
+  wildernesstp.bypass-delay:
+    description: Allows bypassing the /wild teleport delay
+    default: op
+commands:
+  wild:
+    description: Teleport to a random location in the wilderness.
+    usage: /wild
+    aliases: [wilderness, rtp]
+

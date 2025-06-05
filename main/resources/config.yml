@@ -1,0 +1,36 @@
+# Default max distance (used if world not listed below)
+default-max-distance: 1000
+
+teleport-delay:
+  enabled: true # Whether players must wait before teleporting
+  delay: 5 # Delay in seconds before teleportation begins
+
+# Cooldown between /wild usages
+teleport-cooldown:
+  enabled: true
+  duration: 300 # 5 minutes
+
+# List of worlds where /wild is enabled and their individual max distances
+world-settings:
+  world:
+    enabled: true
+    max-distance: 1500
+
+messages:
+  no-permission: "&4You do not have permission to use this command"
+  delay-start: "&c&l[!]&r &7Teleporting in &e{seconds}&7 seconds..."
+  teleport-success: "&c&l[!]&r &7Teleported to a wild location!"
+  teleport-fail: "&c&l[!]&r &cFailed to find a safe teleport location. Try again."
+  world-disabled: "&c&l[!]&r &cYou cannot use /wild in this world."
+  cooldown-active: "&c&l[!]&r &cYou must wait &e{cooldown}&c seconds before using /wild again."
+  teleport-cancelled-move: "&c&l[!]&r &cTeleport cancelled because you moved."
+
+# Title displayed on successful teleport (optional)
+# (( Titles are not currently supported on 1.8 ))
+teleport-title:
+  enabled: true
+  title: "&a&lWilderness Awaits!"
+  subtitle: "&7&oYou have been teleported."
+  fade-in: 10      # ticks (1/20 second each)
+  stay: 40         # ticks
+  fade-out: 20     # ticks
