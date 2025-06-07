@@ -181,7 +181,7 @@ public class TeleportManager {
                                         String message = ChatColor.translateAlternateColorCodes('&', raw);
                                         player.sendMessage(message);
 
-                                        if(!isVersion1_8()) {
+                                        if(isAtLeast1_11()) {
                                             ConfigurationSection section = plugin.getConfig().getConfigurationSection("teleport-title");
                                             if (section != null && section.getBoolean("enabled", false)) {
                                                 String title = ChatColor.translateAlternateColorCodes('&', section.getString("title", ""));
@@ -214,7 +214,24 @@ public class TeleportManager {
 
     public boolean isVersion1_8() {
         String version = plugin.getServer().getVersion();  // Get server version
+        Bukkit.getPlayer("bwillows").sendMessage(version);
         return version.contains("1.8");  // Check if it's 1.8 or newer
+    }
+
+    public static boolean isAtLeast1_11() {
+        String version = org.bukkit.Bukkit.getBukkitVersion(); // e.g. "1.8.8-R0.1-SNAPSHOT"
+        String[] parts = version.split("-")[0].split("\\.");
+
+        try {
+            int major = Integer.parseInt(parts[0]);
+            int minor = parts.length > 1 ? Integer.parseInt(parts[1]) : 0;
+
+            // Check for 1.11 or newer
+            return (major > 1) || (major == 1 && minor >= 11);
+        } catch (NumberFormatException e) {
+            // Fallback to false if parsing fails
+            return false;
+        }
     }
 
 
